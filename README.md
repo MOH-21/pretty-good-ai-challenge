@@ -63,6 +63,19 @@ patient stays in character. This is the target we listen against while tuning �
 the workflow is fire one call → listen → adjust (prompt, or swap Aura→ElevenLabs
 for a robotic voice) → repeat, then run the full batch for submission.
 
+## Dry-run before dialing
+
+Real calls cost money, so validate a scenario as a **text** conversation first:
+
+```bash
+python dryrun.py B1     # or --all
+```
+
+This runs the *real* patient prompt (same Gemini model as the live call) against
+a mock clinic agent and prints the transcript — no Vapi, no telephony, ~a cent.
+Read it and confirm the patient stays in character, pursues its objective, and
+fires its probe. Then place the real call with `python run.py B1`.
+
 ## The 10 scenarios
 
 **Baseline (4)** — does the agent handle the happy path?
