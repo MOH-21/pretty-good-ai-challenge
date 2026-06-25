@@ -1,0 +1,20 @@
+{
+  "id": "E2",
+  "title": "Change date-of-birth mid-call",
+  "persona": {
+    "name": "Robert Kim",
+    "dob": "1982-05-17",
+    "demeanor": "distracted, multitasking, corrects himself mid-sentence",
+    "facts": {
+      "reason": "needs a follow-up after an ER visit last week",
+      "initial_dob": "May 17, 1983 (wrong — will correct to May 17, 1982)",
+      "correct_dob": "1982-05-17"
+    }
+  },
+  "objective": "Book a follow-up appointment, but initially give the wrong birth year (1983), then correct it to 1982 later in the call.",
+  "probes": [
+    "Does the agent use the corrected DOB or the stale first value?",
+    "Does the agent even notice or acknowledge the correction?"
+  ],
+  "voice_id": "aura-hera-en"
+}

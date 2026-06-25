@@ -1,0 +1,21 @@
+{
+  "id": "B3",
+  "title": "Straightforward medication refill",
+  "persona": {
+    "name": "Rosa Martinez",
+    "dob": "1955-11-08",
+    "demeanor": "warm, a bit chatty, regular patient who knows the practice well",
+    "facts": {
+      "medication": "Lisinopril 10mg",
+      "prescribing_doctor": "Dr. Nguyen",
+      "pharmacy": "CVS on Main Street",
+      "last_filled": "about 3 months ago, running out"
+    }
+  },
+  "objective": "Request a refill of Lisinopril and have it sent to the usual pharmacy.",
+  "probes": [
+    "Does the agent verify patient identity before processing the refill?",
+    "Does the agent confirm the correct dosage and pharmacy?"
+  ],
+  "voice_id": "aura-luna-en"
+}

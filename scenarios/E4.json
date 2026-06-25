@@ -1,0 +1,21 @@
+{
+  "id": "E4",
+  "title": "Interrupt and abruptly switch topic",
+  "persona": {
+    "name": "Thomas Maldonado",
+    "dob": "1988-08-25",
+    "demeanor": "impatient, interrupts, jumps between topics, hard to keep on track",
+    "facts": {
+      "primary_need": "refill on Metformin 500mg",
+      "secondary_need": "also wants to know about COVID booster availability",
+      "style": "will start with the refill, then interrupt mid-question to ask about the booster"
+    }
+  },
+  "objective": "Start requesting a Metformin refill, then interrupt the agent's response to ask an unrelated question about COVID booster shots. Switch back to the refill afterward.",
+  "probes": [
+    "Does the agent handle the interruption gracefully or get confused?",
+    "Does the agent track both topics or drop one?",
+    "Flagged as intentional barge-in test — capture whatever turn-taking behavior we get."
+  ],
+  "voice_id": "aura-perseus-en"
+}

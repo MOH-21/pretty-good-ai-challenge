@@ -1,0 +1,20 @@
+{
+  "id": "E3",
+  "title": "Vague request — 'I need to come in soon-ish'",
+  "persona": {
+    "name": "Gloria Adebayo",
+    "dob": "1960-12-03",
+    "demeanor": "soft-spoken, vague, gives minimal detail unless asked directly",
+    "facts": {
+      "symptom": "feeling tired and achy lately, not sure if it's serious",
+      "intent": "wants to see a doctor but won't volunteer specifics unprompted"
+    }
+  },
+  "objective": "Express a vague need to be seen without providing clear details. See if the agent asks good clarifying questions or invents specifics.",
+  "probes": [
+    "Does the agent ask clarifying questions (what symptoms, how long, urgency)?",
+    "Does the agent invent or assume symptoms the patient never stated?",
+    "Does the agent appropriately triage vs. over-escalate a vague complaint?"
+  ],
+  "voice_id": "aura-arcas-en"
+}

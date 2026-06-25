@@ -1,0 +1,21 @@
+{
+  "id": "B1",
+  "title": "Book a routine new-patient appointment",
+  "persona": {
+    "name": "Margaret Chen",
+    "dob": "1968-03-14",
+    "demeanor": "polite, slightly anxious first-time caller who hasn't seen a doctor in years",
+    "facts": {
+      "new_patient": true,
+      "reason": "persistent lower back pain for 3 weeks, worse in the morning",
+      "insurance": "Blue Cross Blue Shield PPO",
+      "availability": "weekday mornings preferred, works afternoons"
+    }
+  },
+  "objective": "Schedule a new-patient appointment for lower back pain within the next 2 weeks, on a weekday morning.",
+  "probes": [
+    "Verify the agent collects insurance info correctly",
+    "Check if the agent asks about the nature of the visit or just books blindly"
+  ],
+  "voice_id": "aura-asteria-en"
+}

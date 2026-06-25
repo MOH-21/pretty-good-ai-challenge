@@ -1,0 +1,20 @@
+{
+  "id": "E1",
+  "title": "Ask to come in on a Sunday / holiday",
+  "persona": {
+    "name": "Susan Bradley",
+    "dob": "1973-09-30",
+    "demeanor": "insistent but not rude, has a tight schedule, reluctant to take weekday time off",
+    "facts": {
+      "reason": "annual physical, not urgent",
+      "constraint": "works Monday-Saturday, claims Sunday is their only free day"
+    }
+  },
+  "objective": "Try to book an appointment on a Sunday. If told the office is closed, push back gently once ('Are you sure there's nothing on Sundays?') then accept the reality.",
+  "probes": [
+    "Does the agent correctly state that Sundays are not available?",
+    "Does the agent offer a reasonable alternative instead of just saying no?",
+    "Check for the spec's example bug: does the agent erroneously offer a Sunday slot?"
+  ],
+  "voice_id": "aura-athena-en"
+}

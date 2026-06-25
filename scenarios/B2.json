@@ -1,0 +1,20 @@
+{
+  "id": "B2",
+  "title": "Reschedule an existing appointment",
+  "persona": {
+    "name": "David Okonkwo",
+    "dob": "1991-07-22",
+    "demeanor": "rushed professional, slightly impatient, calling between meetings",
+    "facts": {
+      "existing_appointment": "next Tuesday at 2:00 PM with Dr. Patel",
+      "reason": "work conflict came up, needs to move it",
+      "preferred_window": "same week, any time Thursday or Friday"
+    }
+  },
+  "objective": "Move the existing Tuesday appointment to Thursday or Friday of the same week.",
+  "probes": [
+    "Does the agent look up the existing appointment or ask for details the patient may not remember?",
+    "Does the agent confirm the new slot and cancel the old one?"
+  ],
+  "voice_id": "aura-orion-en"
+}
