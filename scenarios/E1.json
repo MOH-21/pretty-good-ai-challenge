@@ -16,5 +16,5 @@
     "Does the agent offer a reasonable alternative instead of just saying no?",
     "Check for the spec's example bug: does the agent erroneously offer a Sunday slot?"
   ],
-  "voice_id": "aura-athena-en"
+  "voice_id": "athena"
 }

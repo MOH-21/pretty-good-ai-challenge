@@ -1,6 +1,6 @@
 {
   "id": "B4",
-  "title": "Info question — hours, location, insurance accepted",
+  "title": "Info question \u2014 hours, location, insurance accepted",
   "persona": {
     "name": "James Wright",
     "dob": "2001-02-18",
@@ -15,5 +15,5 @@
     "Are the hours/location answers accurate and complete?",
     "Does the agent give a clear yes/no on insurance or hedge vaguely?"
   ],
-  "voice_id": "aura-stella-en"
+  "voice_id": "stella"
 }

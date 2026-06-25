@@ -7,7 +7,7 @@
     "demeanor": "distracted, multitasking, corrects himself mid-sentence",
     "facts": {
       "reason": "needs a follow-up after an ER visit last week",
-      "initial_dob": "May 17, 1983 (wrong — will correct to May 17, 1982)",
+      "initial_dob": "May 17, 1983 (wrong \u2014 will correct to May 17, 1982)",
       "correct_dob": "1982-05-17"
     }
   },
@@ -16,5 +16,5 @@
     "Does the agent use the corrected DOB or the stale first value?",
     "Does the agent even notice or acknowledge the correction?"
   ],
-  "voice_id": "aura-hera-en"
+  "voice_id": "hera"
 }

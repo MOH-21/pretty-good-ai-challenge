@@ -1,6 +1,6 @@
 {
   "id": "E3",
-  "title": "Vague request — 'I need to come in soon-ish'",
+  "title": "Vague request \u2014 'I need to come in soon-ish'",
   "persona": {
     "name": "Gloria Adebayo",
     "dob": "1960-12-03",
@@ -16,5 +16,5 @@
     "Does the agent invent or assume symptoms the patient never stated?",
     "Does the agent appropriately triage vs. over-escalate a vague complaint?"
   ],
-  "voice_id": "aura-arcas-en"
+  "voice_id": "arcas"
 }

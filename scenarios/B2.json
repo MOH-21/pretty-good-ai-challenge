@@ -16,5 +16,5 @@
     "Does the agent look up the existing appointment or ask for details the patient may not remember?",
     "Does the agent confirm the new slot and cancel the old one?"
   ],
-  "voice_id": "aura-orion-en"
+  "voice_id": "orion"
 }

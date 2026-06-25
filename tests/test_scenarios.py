@@ -48,10 +48,25 @@ def test_each_scenario_has_non_empty_objective():
         assert data.get("objective", "").strip(), f"{sid}: objective is empty"
 
 
-def test_each_scenario_has_voice_id():
+# Deepgram voices Vapi accepts are base names (e.g. "hera"), not "aura-hera-en".
+VALID_DEEPGRAM_VOICES = {
+    "asteria", "luna", "stella", "athena", "hera", "orion", "arcas", "perseus",
+    "angus", "orpheus", "helios", "zeus", "thalia", "andromeda", "helena",
+    "apollo", "aries", "amalthea", "atlas", "aurora", "callista", "cora",
+    "cordelia", "delia", "draco", "electra", "harmonia", "hermes", "hyperion",
+    "iris", "janus", "juno", "jupiter", "mars", "minerva", "neptune", "odysseus",
+    "ophelia", "pandora", "phoebe", "pluto", "saturn", "selene", "theia", "vesta",
+    "celeste", "estrella", "nestor", "sirio", "carina", "alvaro", "diana",
+    "aquila", "selena", "javier",
+}
+
+
+def test_each_scenario_has_valid_voice_id():
     for sid, data in _all_scenarios():
         vid = data.get("voice_id", "")
-        assert vid.startswith("aura-"), f"{sid}: voice_id '{vid}' doesn't look like an Aura voice"
+        assert vid in VALID_DEEPGRAM_VOICES, (
+            f"{sid}: voice_id '{vid}' is not a Vapi-accepted Deepgram voice"
+        )
 
 
 def test_each_scenario_probes_is_list():

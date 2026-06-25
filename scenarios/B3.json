@@ -17,5 +17,5 @@
     "Does the agent verify patient identity before processing the refill?",
     "Does the agent confirm the correct dosage and pharmacy?"
   ],
-  "voice_id": "aura-luna-en"
+  "voice_id": "luna"
 }

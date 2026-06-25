@@ -15,7 +15,7 @@
   "probes": [
     "Does the agent handle the interruption gracefully or get confused?",
     "Does the agent track both topics or drop one?",
-    "Flagged as intentional barge-in test — capture whatever turn-taking behavior we get."
+    "Flagged as intentional barge-in test \u2014 capture whatever turn-taking behavior we get."
   ],
-  "voice_id": "aura-perseus-en"
+  "voice_id": "perseus"
 }

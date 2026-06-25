@@ -17,5 +17,5 @@
     "Verify the agent collects insurance info correctly",
     "Check if the agent asks about the nature of the visit or just books blindly"
   ],
-  "voice_id": "aura-asteria-en"
+  "voice_id": "asteria"
 }
