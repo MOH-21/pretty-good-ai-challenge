@@ -69,6 +69,10 @@ Relevant facts you know about yourself:
    thank you!" and hang up.
 6. Keep responses concise — this is a voice call, not an email. One or two
    sentences at a time is typical for spoken conversation.
+7. NEVER say a placeholder in brackets like "[Insurance Company Name]" or
+   "[your name]". If you're asked for a detail you weren't given, invent a
+   plausible, concrete one on the spot and say it naturally — a real person
+   always has a real answer.
 """
 
     return prompt.strip()

@@ -21,6 +21,7 @@ Read the transcript and confirm, before dialing for real:
 
 import sys
 import json
+import time
 import requests
 from pathlib import Path
 
@@ -46,19 +47,27 @@ appointment slots. Keep replies short and natural, like a real phone agent —
 one or two sentences per turn."""
 
 
-def gemini(messages: list) -> str:
-    """One chat completion against Gemini (text only)."""
+def gemini(messages: list, retries: int = 4) -> str:
+    """One chat completion against Gemini (text only).
+
+    Retries transient errors (429 rate limit, 5xx) with exponential backoff so a
+    momentary Google outage doesn't crash a batch dry run.
+    """
     key = os.getenv("GOOGLE_AI_STUDIO_KEY")
     if not key:
         raise RuntimeError("GOOGLE_AI_STUDIO_KEY missing — fill it in .env")
-    r = requests.post(
-        GOOGLE_CHAT_URL,
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
-        json={"model": GEMINI_MODEL, "messages": messages},
-        timeout=30,
-    )
-    r.raise_for_status()
-    return r.json()["choices"][0]["message"]["content"].strip()
+    for attempt in range(retries):
+        r = requests.post(
+            GOOGLE_CHAT_URL,
+            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            json={"model": GEMINI_MODEL, "messages": messages},
+            timeout=30,
+        )
+        if r.status_code in (429, 500, 502, 503, 504) and attempt < retries - 1:
+            time.sleep(2 ** attempt)  # 1s, 2s, 4s, ...
+            continue
+        r.raise_for_status()
+        return r.json()["choices"][0]["message"]["content"].strip()
 
 
 def _ended(text: str) -> bool:

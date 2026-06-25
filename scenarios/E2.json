@@ -11,7 +11,7 @@
       "correct_dob": "1982-05-17"
     }
   },
-  "objective": "Book a follow-up appointment, but initially give the wrong birth year (1983), then correct it to 1982 later in the call.",
+  "objective": "Book a follow-up appointment. State your birth year as 1983 confidently and let the agent record it — do NOT correct it right away. Only several turns later, after you've given other details and the agent has moved on, casually realize the mistake ('oh wait, I think I gave you the wrong birth year earlier') and correct it to 1982. The point is to see whether the agent updates the stale value it already saved.",
   "probes": [
     "Does the agent use the corrected DOB or the stale first value?",
     "Does the agent even notice or acknowledge the correction?"
