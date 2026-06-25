@@ -21,9 +21,6 @@ VAPI_PHONE_NUMBER_ID = os.getenv("VAPI_PHONE_NUMBER_ID")
 GOOGLE_AI_STUDIO_KEY = os.getenv("GOOGLE_AI_STUDIO_KEY")
 TARGET_PHONE_NUMBER = os.getenv("TARGET_PHONE_NUMBER")
 
-# Google AI Studio OpenAI-compatible endpoint for Vapi custom-LLM routing.
-# Vapi appends /chat/completions to the server.url.
-GOOGLE_OPENAI_BASE = "https://generativelanguage.googleapis.com/v1beta/openai"
 # Flash-Lite is the cheapest Gemini model; exact model string may need updating.
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 
@@ -53,6 +50,26 @@ def _headers() -> dict:
     }
 
 
+def ensure_google_credential():
+    """
+    Make sure the Vapi org has a Google credential so the native `google` model
+    provider can authenticate. Idempotent: creates one from GOOGLE_AI_STUDIO_KEY
+    only if none exists. Lets `python run.py` work from a fresh Vapi account.
+    """
+    r = requests.get(f"{VAPI_BASE}/credential", headers=_headers(), timeout=30)
+    r.raise_for_status()
+    creds = r.json()
+    if any(c.get("provider") == "google" for c in creds):
+        return
+    requests.post(
+        f"{VAPI_BASE}/credential",
+        headers=_headers(),
+        json={"provider": "google", "apiKey": GOOGLE_AI_STUDIO_KEY},
+        timeout=30,
+    ).raise_for_status()
+    logger.info("Created Vapi Google credential for native Gemini access.")
+
+
 def start_call(scenario: dict, prompt: str) -> str:
     """
     Create an outbound call via Vapi.
@@ -60,6 +77,7 @@ def start_call(scenario: dict, prompt: str) -> str:
     Returns the call ID (string).
     """
     _check_keys()
+    ensure_google_credential()
 
     body = {
         "phoneNumberId": VAPI_PHONE_NUMBER_ID,
@@ -77,18 +95,16 @@ def start_call(scenario: dict, prompt: str) -> str:
                 "provider": "deepgram",
                 "voiceId": scenario["voice_id"],
             },
+            # Native Google provider: Vapi formats Gemini requests itself and
+            # authenticates via the org's stored Google credential (ensured
+            # above). Avoids the OpenAI-compat translation that Google's endpoint
+            # rejected with a 400.
             "model": {
-                "provider": "custom-llm",
+                "provider": "google",
                 "model": GEMINI_MODEL,
                 "messages": [
                     {"role": "system", "content": prompt},
                 ],
-                "server": {
-                    "url": GOOGLE_OPENAI_BASE,
-                    "headers": {
-                        "x-goog-api-key": GOOGLE_AI_STUDIO_KEY,
-                    },
-                },
             },
             "recordingEnabled": True,
             # Default recording format is wav/l16; we convert later if needed.
